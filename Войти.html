@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+    <link rel="stylesheet" href="/build/assets/app-c9c92c89.css">
+
+    <link rel="preload" as="style" href="https://logisticsbtl.kz/build/assets/app-c9c92c89.css" />
+    <link rel="stylesheet" href="https://logisticsbtl.kz/build/assets/app-c9c92c89.css" />
+    <title>Войти</title>
+</head>
+<body class="bg-gray-200">
+    <div class="max-w-2xl mx-auto">
+        <main class="py-4">
+            <div class="border card p-10">
+                <form id="loginForm">
+                    <input type="hidden" name="_token" value="T5ewQ6t1OJ2WM1NZnSuk7fMjOeSINftIE5Nv4ctl">
+                    <div class="col-md-7">
+                        <label class="label" for="login">Телефон</label>
+                        <input type="tel" id="login" class="w-full border-blue-0" name="login" value="" placeholder="87071112233" />
+                        <div id="loginError" class="text-red-500 text-sm"></div>
+                    </div>
+                    <br>
+                    <div class="col-md-6">
+                        <label class="label" for="">Пароль</label><br>
+                        <input type="password" id="password" class="w-full border-blue-350" value="" placeholder="Придумайте пароль" />
+                        <div id="passwordError" class="text-red-500 text-sm"></div><br>
+                    </div>
+                    <button type="submit" class="btn btn-primary" formnovalidate>Войти</button>
+                    <br>
+                    <hr class="my-4">
+                    У вас еще нет аккаунта? <a class="link" href="регистрация.html">Зарегистрироваться</a>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Предотвратить отправку формы по умолчанию
+
+            // Получить значения логина и пароля из формы
+            var login = document.getElementById('login').value;
+            var password = document.getElementById('password').value;
+
+            // Проверка заполнения полей
+            if (!login || !password) {
+                // Если поля не заполнены, вывести сообщение об ошибке
+                document.getElementById('loginError').innerHTML = !login ? 'Введите телефон' : '';
+                document.getElementById('passwordError').innerHTML = !password ? 'Введите пароль' : '';
+            } else {
+                // Если поля заполнены, перенаправить пользователя на главную страницу
+                window.location.href = "главная.html";
+            }
+        });
+    </script>
+</body>
+</html>
